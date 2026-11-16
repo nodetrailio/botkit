@@ -1,0 +1,13 @@
+{
+  "name": "@nodetrail/sdk",
+  "private": true,
+  "version": "0.1.0-preview",
+  "description": "Unpublished Nodetrail preview client. Talks to the x402 testnet Preview API. Not for production or mainnet.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": { ".": "./src/index.js" },
+  "license": "UNLICENSED",
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test test/client.test.js" },
+  "keywords": ["nodetrail", "x402", "preview"]
+}
