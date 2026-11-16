@@ -1,0 +1,9 @@
+{
+  "name": "@nodetrail/plugin-solana-agent-kit",
+  "private": true,
+  "version": "0.1.0-preview",
+  "description": "DRAFT Solana Agent Kit plugin for Nodetrail preview scans. Not published.",
+  "type": "module",
+  "main": "src/index.js",
+  "license": "UNLICENSED"
+}

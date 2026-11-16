@@ -1,0 +1,9 @@
+{
+  "name": "@nodetrail/plugin-eliza",
+  "private": true,
+  "version": "0.1.0-preview",
+  "description": "DRAFT ElizaOS plugin for Nodetrail preview scans. Not published. Not an official Eliza listing.",
+  "type": "module",
+  "main": "src/index.js",
+  "license": "UNLICENSED"
+}
