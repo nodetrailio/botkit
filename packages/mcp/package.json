@@ -1,0 +1,14 @@
+{
+  "name": "@nodetrail/mcp",
+  "private": true,
+  "version": "0.1.0-preview",
+  "description": "Unpublished local MCP server for the Nodetrail x402 testnet Preview API. Not a live product.",
+  "type": "module",
+  "bin": { "nodetrail-mcp": "src/server.js" },
+  "main": "src/server.js",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0"
+  }
+}
