@@ -1,0 +1,51 @@
+{
+  "_comment": "DRAFT ONLY. Not submitted to any facilitator or Bazaar. Mainnet stays off. Draft payload shape only. Nodetrail is not listed in the Bazaar yet.",
+  "resource": "https://PREVIEW-HOST-NOT-PROD/api/x402/v1/scan/token",
+  "method": "GET",
+  "network": "eip155:84532",
+  "networkNote": "Base Sepolia testnet only. Also intended, after OK, for solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1 (Solana devnet). Do not list eip155:8453 or solana mainnet.",
+  "priceUsd": "0.01",
+  "asset": "testnet USDC",
+  "description": "Nodetrail preview quick token scan. Testnet only. Result may be produced by local naming rules, not a live chain read. Not financial advice. Not a live Nodetrail product.",
+  "extensions": {
+    "bazaar": {
+      "info": {
+        "input": {
+          "type": "http",
+          "method": "GET",
+          "queryParams": {
+            "address": "Token mint or contract address (Solana base58 or 0x).",
+            "mint": "Alias for address.",
+            "chain": "Optional chain key, for example solana or base.",
+            "name": "Optional token name for this preview.",
+            "symbol": "Optional token symbol for this preview."
+          }
+        },
+        "inputSchema": {
+          "properties": {
+            "address": { "type": "string", "description": "Token mint, contract, or wallet address (Solana base58 or 0x)." },
+            "mint": { "type": "string", "description": "Alias for address, for token scans." },
+            "chain": { "type": "string", "description": "Optional chain key, for example solana or base or ethereum." }
+          },
+          "required": ["address"]
+        },
+        "output": {
+          "type": "json",
+          "example": {
+            "ok": true,
+            "preview": true,
+            "kind": "token",
+            "address": "So11111111111111111111111111111111111111112",
+            "level": "Low",
+            "findings": [],
+            "disclaimer": "Preview scan only. This result is produced by local naming rules in this preview. It is not a live chain read and not financial advice."
+          }
+        }
+      }
+    }
+  },
+  "alsoDraft": [
+    { "resource": "/api/x402/v1/scan/dev", "priceUsd": "0.08", "description": "Nodetrail preview deep / creator scan. Testnet only." },
+    { "resource": "/api/x402/v1/scan/wallet", "priceUsd": "0.01", "description": "Nodetrail preview wallet scan. Testnet only." }
+  ]
+}
