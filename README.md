@@ -1,19 +1,19 @@
 # Nodetrail bot kit
 
-JavaScript SDK, a local MCP server, and draft agent-framework plugins so bots and scripts can call Nodetrail’s testnet x402 scan API.
+JavaScript SDK, a local MCP server, and draft agent-framework plugins so bots and scripts can call Nodetrail’s x402 pay-per-scan API.
 
-**On-chain sight, security tight.**
+**Scan first. Ape different.™**
 
-x402 runs on testnet for now (Base Sepolia and Solana devnet). Mainnet payments are coming soon. The starter (API-key) product stays off. Packages are not on npm yet — install from this repo. Payments default off in the client, and mainnet payments are refused.
+The scan API is live on nodetrail.io. Quick token scans cost 5¢, wallet scans 7¢ and deep scans 9¢, paid in USDC on Base or Solana mainnet. The starter (API-key) product stays off. Packages are not on npm yet — install from this repo. Payments default off in the client in this repo: it shows you the `402 Payment Required` quote and does not pay or sign for you. Use any x402 v2 client to pay.
 
-Preview scans may be produced by local naming rules. They are not live chain reads. Facts only. No score, no verdict.
+Facts only. Never a verdict.
 
 ## What’s in here
 
 | Path | What it is |
 |---|---|
-| `packages/sdk` | JavaScript client for the testnet x402 preview API |
-| `packages/mcp` | Local MCP server that exposes the same preview scans as tools |
+| `packages/sdk` | JavaScript client for the x402 scan API |
+| `packages/mcp` | Local MCP server that exposes the same scans as tools |
 | `packages/eliza-plugin` | ElizaOS plugin **draft** (not listed in Eliza yet) |
 | `packages/solana-agent-kit` | Solana Agent Kit plugin **draft** (not listed in that kit yet) |
 | `badges` | “Powered by Nodetrail” SVG badges |
@@ -23,20 +23,20 @@ Docs: [nodetrail.io/developers](https://nodetrail.io/developers/). Product: [nod
 
 ## Where calls go
 
-Set the preview host yourself. The scan routes are not on nodetrail.io yet.
+Point the client at the live API:
 
 ```bash
-export NODETRAIL_BASE_URL="https://YOUR-TESTNET-PREVIEW-HOST"
+export NODETRAIL_BASE_URL="https://nodetrail.io"
 ```
 
-- Quick token scan: `GET /api/x402/v1/scan/token?address=...` — $0.01 testnet USDC
-- Deep / dev scan: `GET /api/x402/v1/scan/dev?address=...` — $0.08 testnet USDC
-- Quick wallet scan: `GET /api/x402/v1/scan/wallet?address=...` — $0.01 testnet USDC
+- Quick token scan: `GET /api/x402/v1/scan/token?address=...` — 5¢ USDC
+- Deep / dev scan: `GET /api/x402/v1/scan/dev?address=...` — 9¢ USDC
+- Quick wallet scan: `GET /api/x402/v1/scan/wallet?address=...` — 7¢ USDC
 - Free status: `GET /api/x402/v1/info`
 
-A Vercel login may be required to reach the current preview. Do not send mainnet funds.
+Pass `chain` for anything other than a Solana mint or a Base `0x` address. See [nodetrail.io/developers](https://nodetrail.io/developers/) for the chain list and the full spec at [nodetrail.io/openapi.json](https://nodetrail.io/openapi.json).
 
-The SDK and MCP default to **not sending a payment**. They will show you a `402 Payment Required` result instead. Paying is opt-in and testnet-only.
+The SDK and MCP in this repo default to **not sending a payment**. They will show you a `402 Payment Required` result instead.
 
 ## Quick try
 
@@ -47,12 +47,11 @@ node --input-type=module -e "import { Nodetrail } from './src/index.js'; const n
 
 ```bash
 cd packages/mcp
-NODETRAIL_BASE_URL="https://YOUR-TESTNET-PREVIEW-HOST" node src/server.js
+NODETRAIL_BASE_URL="https://nodetrail.io" node src/server.js
 ```
 
 ## What this is not
 
-- Not a live pay-per-scan product on nodetrail.io
 - Not an npm package you can install from the public registry yet
-- Not a mainnet payment product
+- Not a payment signer: this repo’s client does not pay for you
 - Not listed in the x402 Bazaar yet
