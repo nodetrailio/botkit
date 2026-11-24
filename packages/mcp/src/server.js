@@ -36,7 +36,7 @@ const tools = [
   },
   {
     name: "nodetrail_check_token",
-    description: `Quick token scan on the Nodetrail x402 Preview (listed preview price $0.01 testnet USDC). ${NOTICE}`,
+    description: `Quick token scan on the Nodetrail x402 Preview (listed price $0.01 USDC). ${NOTICE}`,
     inputSchema: {
       type: "object",
       required: ["address"],
@@ -50,7 +50,7 @@ const tools = [
   },
   {
     name: "nodetrail_check_dev",
-    description: `Deep / creator scan on the Nodetrail x402 Preview (listed preview price $0.08 testnet USDC). ${NOTICE}`,
+    description: `Deep / creator scan on the Nodetrail x402 Preview (listed price $0.03 USDC). ${NOTICE}`,
     inputSchema: {
       type: "object",
       required: ["address"],
@@ -62,7 +62,7 @@ const tools = [
   },
   {
     name: "nodetrail_check_wallet",
-    description: `Quick wallet scan on the Nodetrail x402 Preview (listed preview price $0.01 testnet USDC). ${NOTICE}`,
+    description: `Quick wallet scan on the Nodetrail x402 Preview (listed price $0.02 USDC). ${NOTICE}`,
     inputSchema: {
       type: "object",
       required: ["address"],

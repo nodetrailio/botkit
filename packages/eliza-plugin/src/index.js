@@ -23,7 +23,7 @@ async function runScan(kind, address, extras = {}) {
 const checkTokenAction = {
   name: "NODETRAIL_CHECK_TOKEN",
   similes: ["RUG_CHECK", "TOKEN_SCAN", "NODETRAIL_SCAN"],
-  description: "Run a quick Nodetrail preview token scan (testnet preview, $0.01 listed price, payment off in this draft).",
+  description: "Run a quick Nodetrail preview token scan ($0.01 listed price, payment off in this draft).",
   validate: async (_runtime, message) => Boolean(String(message?.content?.text || "").trim()),
   handler: async (_runtime, message, _state, _opts, callback) => {
     const text = String(message?.content?.text || "");

@@ -16,8 +16,8 @@ export const SCAN_PATHS = Object.freeze({
 
 export const PREVIEW_PRICES = Object.freeze({
   token: { usd: 0.01, bucket: "quick" },
-  wallet: { usd: 0.01, bucket: "quick" },
-  dev: { usd: 0.08, bucket: "deep" },
+  wallet: { usd: 0.02, bucket: "quick" },
+  dev: { usd: 0.03, bucket: "deep" },
 });
 
 const MAINNET_HINTS = [
@@ -68,17 +68,17 @@ export class Nodetrail {
     return this.#get(SCAN_PATHS.info);
   }
 
-  /** Quick token scan, preview price $0.01 testnet USDC. */
+  /** Quick token scan, listed price $0.01 USDC. */
   async checkToken(address, extra = {}) {
     return this.#scan("token", { address, ...extra });
   }
 
-  /** Deep / creator scan, preview price $0.08 testnet USDC. */
+  /** Deep / creator scan, listed price $0.03 USDC. */
   async checkDev(address, extra = {}) {
     return this.#scan("dev", { address, ...extra });
   }
 
-  /** Quick wallet scan, preview price $0.01 testnet USDC. */
+  /** Quick wallet scan, listed price $0.02 USDC. */
   async checkWallet(address, extra = {}) {
     return this.#scan("wallet", { address, wallet: address, ...extra });
   }
